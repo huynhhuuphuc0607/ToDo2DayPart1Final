@@ -12,6 +12,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main Activity
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -26,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
     //reference to the custom list adapter
     TaskListAdapter mTaskListAdapter;
+
+    /**
+     * establishes connections from view to controller
+     * from model to controller
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * re-populate the to-do list
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -48,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
         mTaskListView.setAdapter(mTaskListAdapter);
     }
 
+    /**
+     * add a new task
+     * @param v the view that triggers the event
+     */
     public void addTask(View v) {
         //WE SHOULD USE THE ID FROM THE DATABASE AFTER ADDING A NEW TASK TO THE DATABASE
         //OTHERWISE, IF WE WE CREATE A NEW TASK, THE FIRST TIME WE TOGGLE THE TASK STATUS,
@@ -74,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * clear all tasks
+     * @param v the view that triggers the event
+     */
     public void clearAllTasks(View v)
     {
         allTasksList.clear();
@@ -81,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
         mTaskListAdapter.notifyDataSetChanged();
     }
 
+    /**
+     * change the "done" status
+     * @param v the view that triggers the event
+     */
     public void changeTaskStatus(View v)
     {
         CheckBox selectedCheckBox = (CheckBox)v;

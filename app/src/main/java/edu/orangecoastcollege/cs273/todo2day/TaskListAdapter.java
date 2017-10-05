@@ -17,12 +17,21 @@ import java.util.List;
  * Created by phuynh101 on 10/3/2017.
  */
 
+/**
+ * An adapter. Inflate the rows of the list with data
+ */
 public class TaskListAdapter extends ArrayAdapter<Task> {
 
     private Context mContext;
     private int mResourceId;
     private List<Task> mTaskList;
 
+    /**
+     * constructor
+     * @param context context where the list should be populated
+     * @param resource resource id layout for the row
+     * @param objects a container of objects
+     */
     public TaskListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Task> objects) {
         super(context, resource, objects);
         mContext = context;
@@ -30,6 +39,13 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
         mTaskList = objects;
     }
 
+    /**
+     * inflate the row layout with data
+     * @param position position
+     * @param convertView
+     * @param parent
+     * @return view after being inflated with data
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
